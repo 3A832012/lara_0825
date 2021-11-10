@@ -49,7 +49,9 @@ Route::get('/', function () {
 //$post=Post::find(1);
 //$post->delete();
 
-Post::destroy(2);
+//Post::destroy(2);
+
+Post::destroy(3,5,7);
 
 
 Route::get('posts', [\App\Http\Controllers\PostsController::class, 'index'])->name('posts.index');
