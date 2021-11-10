@@ -20,7 +20,10 @@ Route::get('/', function () {
     $post->content ='test content';
     $post->save();
 });
-
+Post::create([
+    'title'=>'test title',
+    'content' =>'test content'
+]);
 
 Route::get('posts', [\App\Http\Controllers\PostsController::class, 'index'])->name('posts.index');
 Route::get('post', [\App\Http\Controllers\PostsController::class, 'show'])->name('posts.show');
