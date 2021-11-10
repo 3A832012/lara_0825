@@ -20,21 +20,24 @@ Route::get('/', function () {
 //    $post->content ='test content';
 //    $post->save();
 });
-
+//--------------新增資料--------------
 //Post::create([
 //    'title'=>'test title',
 //    'content' =>'test content'
 //]);
 
+//--------------尋找資料--------------
 //$posts=Post::all();
 //dd($posts);
 
 //$post=Post::find(1);
 //dd($post);
 
+//--------------條件式尋找--------------
 //$posts=Post::where('id','<',10)->orderBy('id','DESC')->get();
 //dd($posts);
 
+//--------------更新資料--------------
 //$post=Post::find(1);
 //$post->update([
 //    'title'=>'updated title',
@@ -46,12 +49,16 @@ Route::get('/', function () {
 //$post->content='saved content';
 //$post->save();
 
+//--------------刪除資料--------------
 //$post=Post::find(1);
 //$post->delete();
 
 //Post::destroy(2);
 
-Post::destroy(3,5,7);
+//Post::destroy(3,5,7);
+
+$allPosts=Post::all();
+dd($allPosts);
 
 
 Route::get('posts', [\App\Http\Controllers\PostsController::class, 'index'])->name('posts.index');
