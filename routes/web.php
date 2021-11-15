@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
+use App\Models\Comment;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -71,11 +72,20 @@ Route::get('/', function () {
 //$lastPost=Post::orderBy('id','DESC')->first();
 //dd($lastPost);
 
-$post = Post::find(1);
+//--------------透過Comments關係，擷取Comments資料--------------
+//$post = Post::find(1);
+//echo $post->title.'<br>';
+//foreach($post->comments as $comment){
+//    echo $comment->content.'<br>';
+//}
+
+//--------------透過Pots關係，擷取Pots資料--------------
+$comment = Comment::find(1);
+echo $comment->content.'<br>';
+$post = $comment->post;
+echo $post->id.'<br>';
 echo $post->title.'<br>';
-foreach($post->comments as $comment){
-    echo $comment->content.'<br>';
-}
+echo $post->content.'<br>';
 
 Route::get('posts', [\App\Http\Controllers\PostsController::class, 'index'])->name('posts.index');
 Route::get('post', [\App\Http\Controllers\PostsController::class, 'show'])->name('posts.show');
