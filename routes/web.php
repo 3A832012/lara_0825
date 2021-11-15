@@ -71,10 +71,16 @@ Route::get('/', function () {
 //$lastPost=Post::orderBy('id','DESC')->first();
 //dd($lastPost);
 
+$post = Post::find(1);
+echo $post->title.'<br>';
+foreach($post->comments as $comment){
+    echo $comment->content.'<br>';
+}
 
 Route::get('posts', [\App\Http\Controllers\PostsController::class, 'index'])->name('posts.index');
 Route::get('post', [\App\Http\Controllers\PostsController::class, 'show'])->name('posts.show');
 Route::get('contact', [\App\Http\Controllers\PostsController::class, 'contact'])->name('posts.contact');
 Route::get('about', [\App\Http\Controllers\PostsController::class, 'about'])->name('posts.about');
+
 
 
